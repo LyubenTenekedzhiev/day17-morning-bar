@@ -7,17 +7,17 @@ document.addEventListener('DOMContentLoaded', () => {
   
   //plus sing is adding
     plus.addEventListener('click', () => {
-      if(Number(counter.innerHTML) < Number(max.innerHTML)) {
-        counter.innerHTML = Number(counter.innerHTML) + 1;
-        knob.style.width = Number(counter.innerHTML * 10) + '%';
+      if(Number(counter.textContent) < Number(max.textContent)) {
+        counter.textContent = Number(counter.textContent) + 1;
+        knob.style.width = Number(counter.textContent * 10) + '%';
       }
     });  
 
   //minus sign is subtracting
    minus.addEventListener('click', () => {
-    if(Number(counter.innerHTML) > 0) {
-      counter.innerHTML = Number(counter.innerHTML) - 1;
-      knob.style.width = Number(counter.innerHTML * 10) + '%';
+    if(Number(counter.textContent) > 0) {
+      counter.textContent = Number(counter.textContent) - 1;
+      knob.style.width = Number(counter.textContent * 10) + '%';
     }
   })
 });
