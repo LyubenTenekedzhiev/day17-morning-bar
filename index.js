@@ -1,23 +1,25 @@
-document.addEventListener('DOMContentLoaded', () => {
-  const knob = document.querySelector('.knob');
-  const plus = document.querySelector('#plus');
-  const minus = document.querySelector('#minus');
-  const counter = document.getElementById('counter')
-  const max = document.getElementById('maximum')
-  
-  //plus sing is adding
-    plus.addEventListener('click', () => {
-      if(Number(counter.textContent) < Number(max.textContent)) {
-        counter.textContent = Number(counter.textContent) + 1;
-        knob.style.width = Number(counter.textContent * 10) + '%';
-      }
-    });  
+const progressBar = new ProgressBar(0, 17, 'red');
+const progressBar2 = new ProgressBar(0, 17, 'green');
+const progressBar3 = new ProgressBar(0, 17, 'black');
 
-  //minus sign is subtracting
-   minus.addEventListener('click', () => {
-    if(Number(counter.textContent) > 0) {
-      counter.textContent = Number(counter.textContent) - 1;
-      knob.style.width = Number(counter.textContent * 10) + '%';
-    }
-  })
+document.addEventListener('DOMContentLoaded', () => { 
+  const parent = document.querySelector('.app');
+
+  progressBar.mount(parent);
+  progressBar2.mount(parent);
+  progressBar3.mount(parent);
+
+
+  const colorChange = () => {
+    const result = document.querySelector('#result');
+    const resultBody = document.querySelector('.result')
+    result.style.backgroundColor = `rgb(${progressBar.value * 15}, ${progressBar2.value * 15}, ${progressBar3.value * 15})`;
+
+    resultBody.style.backgroundColor = `rgb(${progressBar.value * 15}, ${progressBar2.value * 15}, ${progressBar3.value * 15})`;
+    this.update();
+  }
+  
+  const btnColor = document.querySelector('#colorChanger');
+  btnColor.addEventListener('click', () => colorChange());
+
 });
